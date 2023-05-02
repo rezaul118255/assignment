@@ -14,7 +14,7 @@ import Register from './pages/home/register/Register.jsx';
 import Blog from './pages/home/blog/Blog.jsx';
 import About from './pages/home/about/About.jsx';
 import FoodSection from './component/food-section/FoodSection.jsx';
-import ViewRecipe from './pages/home/viewRecipe/ViewRecipe.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -41,14 +41,11 @@ const router = createBrowserRouter([
         path: "about",
         element: <About></About>
       },
-      {
-        path: "viewRecipe",
-        element: <ViewRecipe></ViewRecipe>
-      },
+
       {
         path: '/category/:id',
         element: <FoodSection></FoodSection>,
-        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+        loader: ({ params }) => fetch(`https://chef-recipe-server-rezaul118255.vercel.app/category/${params.id}`)
       }
 
     ]

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import FoodSection from '../food-section/FoodSection';
+// import FoodSection from '../food-section/FoodSection';
 
 const ChefInfo = ({ category }) => {
     const { id, chef_img_url, chef_name, chef_experience, recipes } = category
     // console.log(recipes)
 
     return (
-        <div className='container grid grid-cols-3'>
+        <div className='container'>
 
 
             <Row xs={1} md={2} xl={3} className="g-4">
@@ -41,6 +41,22 @@ const ChefInfo = ({ category }) => {
                     </Col>
                 ))}
             </Row>
+            {/* <div className="row row-cols-md-2 ">
+                <div className="col">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Card description</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> */}
+
+
+
 
 
 

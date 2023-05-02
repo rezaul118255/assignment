@@ -6,7 +6,7 @@ const ChefSection = () => {
     const [categories, setCategories] = useState([])
     // console.log(categories)
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('https://chef-recipe-server-rezaul118255.vercel.app/category')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(error => console.error(error))
