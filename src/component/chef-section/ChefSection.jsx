@@ -4,7 +4,7 @@ import ChefInfo from './ChefInfo';
 
 const ChefSection = () => {
     const [categories, setCategories] = useState([])
-    console.log(categories)
+    // console.log(categories)
     useEffect(() => {
         fetch('http://localhost:5000/category')
             .then(res => res.json())
