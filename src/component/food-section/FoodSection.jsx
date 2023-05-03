@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData, useParams, } from 'react-router-dom';
 import { FaBeer } from 'react-icons/fa';
+import './food.css';
 
 const FoodSection = () => {
     const { id } = useParams()
@@ -13,15 +14,15 @@ const FoodSection = () => {
                 recipes.map(recipe => <div
                     key={recipe.recipe_id}
                 >
-                    <div className='d-flex gap-5 mt-4'>
-                        <img className='img-thumbnail' src={recipe.foodPic} alt="" />
+                    <div className='d-flex gap-5 mt-4 '>
+                        <img className='image' src={recipe.foodPic} alt="" />
                         <div className='ml-auto'>
-                            <h5> Name: {recipe.recipe_name}</h5>
-                            <h6> cooking_method: {recipe.cooking_method}</h6>
-                            <h6> rating: {recipe.rating}</h6>
+                            <h5> <span className='fw-bold'>Name:</span> {recipe.recipe_name}</h5>
+                            <h6> <span className='fw-bold'>cooking_method: </span>{recipe.cooking_method}</h6>
+                            <h6><span className='fw-bold'>rating: </span> {recipe.rating}</h6>
                             <p>  <FaBeer />{recipe.likes}</p>
-                            <p> ingredients: {recipe.ingredients}</p>
-                            <p> instructions: {recipe.instructions}</p>
+                            <p><span className='fw-bold'>ingredients: </span>  {recipe.ingredients}</p>
+                            <p><span className='fw-bold'>instructions:  </span> {recipe.instructions}</p>
                             <button className='btn btn-primary'>Add to Favourite</button>
                         </div>
                     </div>

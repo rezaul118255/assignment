@@ -13,9 +13,9 @@ const ChefSection = () => {
     }, [])
     return (
 
-        <div className=' row row-cols-2 row-cols-md-2 row-cols-lg-3 container'>
 
-            <div className='col '>
+        <div className=' g-4 row'>
+            <div className='col-sm-6 col-lg-4 '>
                 {
                     categories.map(category => <ChefInfo
                         key={category.id}
@@ -28,6 +28,7 @@ const ChefSection = () => {
                 }
             </div>
         </div>
+
 
     );
 };

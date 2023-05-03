@@ -53,7 +53,7 @@ const Register = () => {
 
                             type="checkbox"
                             name="accept"
-                            label={<>Accept <Link to="/terms">Terms and Conditions</Link> </>} />
+                            label={<>Accept <Link to="/blog">Terms and Conditions</Link> </>} />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Register
