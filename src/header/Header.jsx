@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
+import { AuthContext } from '../providers/AuthProvider';
+
+import { getAuth, signOut } from 'firebase/auth';
+import app from '../firebase/firebase.config';
 const Header = () => {
+    const { user } = useContext(AuthContext);
+
+    const auth = getAuth(app);
+
+    const handelLogOut = () => {
+        signOut(auth)
+            .then(result => {
+                console.log(result)
+                setUser(null)
+
+            })
+            .catch(error => console.log(error))
+    }
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -20,22 +37,29 @@ const Header = () => {
                         </Nav>
                         <Nav className='gap-2'>
 
-                            <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                            < FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+
+                            {user ?
+                                <Button onClick={handelLogOut} variant="primary">Logout</Button> :
+                                <Link to="/login">
+                                    <Button variant="primary">Login</Button>
+                                </Link>
+                            }
+
+
 
                             <Link to="/register">
                                 <Button variant="primary">register</Button>
                             </Link>
 
 
-                            <Link to="/login">
-                                <Button variant="primary">Login</Button>
-                            </Link>
+
 
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
-        </Container>
+            </Navbar >
+        </Container >
     );
 };
 

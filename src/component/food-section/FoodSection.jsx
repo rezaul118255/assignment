@@ -3,18 +3,26 @@ import { useLoaderData, useParams, } from 'react-router-dom';
 import { FaBeer } from 'react-icons/fa';
 import './food.css';
 
+import { ToastContainer, toast } from 'react-toastify';
+
 const FoodSection = () => {
     const { id } = useParams()
     const foodCategory = useLoaderData(id)
     const { chef_img_url, chef_name, chef_experience, recipes } = foodCategory
+    const handelTost = () => {
+        toast('Add to Favourite Card')
+    }
     return (
+
         <div className='container'>
 
+
             {
+
                 recipes.map(recipe => <div
                     key={recipe.recipe_id}
                 >
-                    <div className='d-flex gap-5 mt-4 '>
+                    <div className='d-flex gap-5 mt-4 likha '>
                         <img className='image' src={recipe.foodPic} alt="" />
                         <div className='ml-auto'>
                             <h5> <span className='fw-bold'>Name:</span> {recipe.recipe_name}</h5>
@@ -23,7 +31,8 @@ const FoodSection = () => {
                             <p>  <FaBeer />{recipe.likes}</p>
                             <p><span className='fw-bold'>ingredients: </span>  {recipe.ingredients}</p>
                             <p><span className='fw-bold'>instructions:  </span> {recipe.instructions}</p>
-                            <button className='btn btn-primary'>Add to Favourite</button>
+                            <button onClick={handelTost} className='btn btn-primary'>Add to Favourite</button>
+                            <ToastContainer />
                         </div>
                     </div>
 

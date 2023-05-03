@@ -1,11 +1,27 @@
 .cobi {
-    height: 200px;
-    width: auto;
+    height: 150px;
+    width: 300px;
 }
 
-.card:hover {
+.card {
+    height: 350px;
+    width: 300px;
+}
+
+.title {
+    font-size: 12px;
+}
+
+/* .card:hover {
     background-color: rgb(62, 62, 62);
     color: white;
     cursor: pointer;
-    transform: all 1s ease;
+    transform: all, 1s, ease;
+} */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 20rem);
+    justify-content: center;
+
 }

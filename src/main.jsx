@@ -15,12 +15,14 @@ import Blog from './pages/home/blog/Blog.jsx';
 import About from './pages/home/about/About.jsx';
 import FoodSection from './component/food-section/FoodSection.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
+import ErrorPage from './component/errorPage/ErrorPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

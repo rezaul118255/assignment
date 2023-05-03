@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div className='container mt-4'>
             <div className='text-center bg-dark container d-flex row row-cols-1 row-cols-md-2 '>
-                <div className='col d-flex p-4'>
+                <div className='col d-flex  p-4'>
                     <div className='text-white p-4'>
                         <h3>Company name </h3>
                         <p>Here you can use rows and <br /> columns to organize your footer <br /> content. Lorem ipsum dolor sit amet,<br /> consectetur adipisicing elit.</p>

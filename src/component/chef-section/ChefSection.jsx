@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ChefInfo from './ChefInfo';
+import './chef.css'
 
 const ChefSection = () => {
     const [categories, setCategories] = useState([])
@@ -14,18 +15,20 @@ const ChefSection = () => {
     return (
 
 
-        <div className=' g-4 row'>
-            <div className='col-sm-6 col-lg-4 '>
-                {
-                    categories.map(category => <ChefInfo
-                        key={category.id}
-                        category={category}
-                    >
+        <div>
+            <div className=' g-4 row d-flex '>
+                <div className='cards'>
+                    {
+                        categories.map(category => <ChefInfo
+                            key={category.id}
+                            category={category}
+                        >
 
-                    </ChefInfo>
+                        </ChefInfo>
 
-                    )
-                }
+                        )
+                    }
+                </div>
             </div>
         </div>
 

@@ -1,10 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
+    const [accepted, setAccepted] = useState(false);
+    const [passwords, setPasswords] = useState('');
+    const [error, setError] = useState('');
     const handelRegister = event => {
         event.preventDefault()
         const form = event.target;
@@ -16,11 +22,15 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
-                console.log(createdUser);
+                setPasswords(createdUser);
             })
             .catch(error => {
-                console.log(error);
+                const wrong = error.message
+                setError(wrong);
             })
+    }
+    const handleAccepted = event => {
+        setAccepted(event.target.checked)
     }
     return (
         <div>
@@ -50,12 +60,22 @@ const Register = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check
+                            onClick={handleAccepted}
+
 
                             type="checkbox"
                             name="accept"
                             label={<>Accept <Link to="/blog">Terms and Conditions</Link> </>} />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Form.Text className="text-danger">
+                        {
+                            <p>{error}</p>
+                        }
+
+
+                    </Form.Text>
+
+                    <Button variant="primary" disabled={!accepted} type="submit">
                         Register
                     </Button>
                     <br />
@@ -63,6 +83,12 @@ const Register = () => {
                         Already Have an Account? <Link to="/login">Login</Link>
                     </Form.Text>
                     <Form.Text className="text-success">
+                        {
+                            passwords && toast('register succesfull ')
+
+
+                        }
+                        <ToastContainer></ToastContainer>
 
                     </Form.Text>
                     <Form.Text className="text-danger">

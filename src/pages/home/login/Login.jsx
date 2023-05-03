@@ -4,16 +4,19 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+
     const { signIn } = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
-    const githubPriovider = new GithubAuthProvider
+    const githubPriovider = new GithubAuthProvider();
     const auth = getAuth();
-    const { user, setUser } = useState(null)
-    const { error, setError } = useState('')
-    console.log(user)
+    const [user, setUser] = useState(null)
+    const [error, setError] = useState('')
+
+    // console.log(user)
 
 
 
@@ -31,18 +34,18 @@ const Login = () => {
 
             })
             .catch(error => {
-                setError(error.message);
+                setError(error.message)
             })
     }
     const handelGoogleSignIn = () => {
         signInWithPopup(auth, provider)
             .then(result => {
-                const User = result.user;
-                setUser(User)
+                const GoogleUser = result.user;
+                setUser(GoogleUser)
 
             })
             .catch(error => {
-                console.log(error.message);
+                setError(error.message);
             })
     }
     const handleGithubSingIn = () => {
@@ -53,14 +56,15 @@ const Login = () => {
 
             })
             .catch(error => {
-                console.log(error.message);
+                setError(error.message);
             })
     }
     return (
         <div>
+
             <Container className='w-25 mx-auto'>
 
-                {<p>{error}</p>}
+
 
                 <h3>Please Login</h3>
                 <Form onSubmit={handleLogin}>
@@ -85,11 +89,15 @@ const Login = () => {
 
                     </Form.Text>
                     <Form.Text className="text-danger">
+                        {
+                            <p>{error}</p>
+                        }
+
 
                     </Form.Text>
                     <button onClick={handelGoogleSignIn} className='btn btn-outline-primary'>continue with google</button>
-                    {user &&
-                        toast('user is found ')
+                    {
+                        user && toast('user is found ')
 
 
                     }
