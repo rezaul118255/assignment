@@ -12,19 +12,23 @@ const ChefSection = () => {
             .catch(error => console.error(error))
     }, [])
     return (
-        <div>
-            <h1>this is chef section</h1>
-            {
-                categories.map(category => <ChefInfo
-                    key={category.id}
-                    category={category}
-                >
 
-                </ChefInfo>
+        <div className=' row row-cols-2 row-cols-md-2 row-cols-lg-3 container'>
 
-                )
-            }
+            <div className='col '>
+                {
+                    categories.map(category => <ChefInfo
+                        key={category.id}
+                        category={category}
+                    >
+
+                    </ChefInfo>
+
+                    )
+                }
+            </div>
         </div>
+
     );
 };
 
