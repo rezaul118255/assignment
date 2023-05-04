@@ -20,6 +20,7 @@ const Header = () => {
             })
             .catch(error => console.log(error))
     }
+    const photo = auth.currentUser;
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -36,8 +37,13 @@ const Header = () => {
 
                         </Nav>
                         <Nav className='gap-2'>
+                            {user && < FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                            }
+                            {/* {
+                                user && <img src=".photoURL" alt="" />
+                            } */}
 
-                            < FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+
 
                             {user ?
                                 <Button onClick={handelLogOut} variant="primary">Logout</Button> :

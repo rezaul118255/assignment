@@ -16,6 +16,7 @@ import About from './pages/home/about/About.jsx';
 import FoodSection from './component/food-section/FoodSection.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import ErrorPage from './component/errorPage/ErrorPage.jsx';
+import PrivateRoute from './component/privateRoutes/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
 
       {
         path: '/category/:id',
-        element: <FoodSection></FoodSection>,
+        element: <PrivateRoute><FoodSection></FoodSection></PrivateRoute>,
         loader: ({ params }) => fetch(`https://chef-recipe-server-rezaul118255.vercel.app/category/${params.id}`)
       }
 

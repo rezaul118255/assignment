@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,11 +10,15 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
 
     const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
     const provider = new GoogleAuthProvider();
     const githubPriovider = new GithubAuthProvider();
     const auth = getAuth();
-    const [user, setUser] = useState(null)
-    const [error, setError] = useState('')
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState('');
+    const location = useLocation();
+    console.log('login page location', location)
+    const from = location.state?.from?.pathname || '/'
 
     // console.log(user)
 
@@ -31,6 +35,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 setUser(loggedUser);
+                navigate(from, { replace: true })
 
             })
             .catch(error => {
