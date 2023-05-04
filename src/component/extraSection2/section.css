@@ -1,0 +1,13 @@
+.pic {
+    height: 80%;
+    width: 80%;
+    border-radius: 12px;
+    opacity: 90%;
+}
+
+.cardd:hover {
+    background-color: rgb(62, 62, 62);
+    color: white;
+    cursor: pointer;
+    transform: all, 1s, ease;
+}
