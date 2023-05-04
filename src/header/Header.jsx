@@ -3,13 +3,27 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../providers/AuthProvider';
+import "./header.css"
 
-import { getAuth, signOut } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import app from '../firebase/firebase.config';
 const Header = () => {
     const { user } = useContext(AuthContext);
 
     const auth = getAuth(app);
+    const userr = auth.currentUser;
+    onAuthStateChanged(auth, (user => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            // ...
+            console.log("akkkkkkkkkkkkk")
+        } else {
+            // User is signed out
+            // ...
+        }
+    }))
 
     const handelLogOut = () => {
         signOut(auth)
@@ -37,11 +51,11 @@ const Header = () => {
 
                         </Nav>
                         <Nav className='gap-2'>
-                            {user && < FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-                            }
-                            {/* {
-                                user && <img src=".photoURL" alt="" />
+                            {/* {user && < FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
                             } */}
+                            {
+                                userr && <img className='photo' src={userr.photoURL} alt="" />
+                            }
 
 
 
