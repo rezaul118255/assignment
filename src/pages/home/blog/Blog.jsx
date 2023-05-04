@@ -16,12 +16,12 @@ const Blog = () => {
             <div className=''>
                 <div className='text-center'>
                     <h3> difference between nodejs and express js.</h3>
-                    <p>Node.js and Express.js are both important technologies in the JavaScript ecosystem, but they serve different purposes. Node.js provides a runtime environment for running JavaScript code on the server, while Express.js provides a framework for building web applications and APIs on top of Node.js</p>
+                    <p>Node.js and Expressf.js are both important technologies in the JavaScript ecosystem, but they serve different purposes. Node.js provides a runtime environment for running JavaScript code on the server, while Express.js provides a framework for building web applications and APIs on top of Node.js</p>
                 </div>
                 <div className='text-center'>
 
                     <h3> custom hook</h3>
-                    <p>custom hooks in React are a powerful way to encapsulate reusable logic and improve code readability, maintainability, and performance. You would create a custom hook when you have some logic that is used in multiple components, and you want to centralize and reuse that logic in a modular way.</p>
+                    <p>custom hooksss in React are a powerful way to encapsulate reusable logic and improve code readability, maintainability, and performance. You would create a custom hook when you have some logic that is used in multiple components, and you want to centralize and reuse that logic in a modular way.</p>
                 </div>
             </div>
         </div>
