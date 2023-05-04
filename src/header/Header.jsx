@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa';
+// import { FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../providers/AuthProvider';
 import "./header.css"
 
@@ -14,16 +14,14 @@ const Header = () => {
     const userr = auth.currentUser;
     onAuthStateChanged(auth, (user => {
         if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
+
             const uid = user.uid;
-            // ...
-            console.log("akkkkkkkkkkkkk")
+
         } else {
-            // User is signed out
-            // ...
+
         }
     }))
+
 
     const handelLogOut = () => {
         signOut(auth)
