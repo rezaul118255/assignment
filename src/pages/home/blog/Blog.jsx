@@ -6,7 +6,7 @@ const Blog = () => {
             <div className=''>
                 <div className='text-center'>
                     <h3>the differences between uncontrolled and controlled components </h3>
-                    <p>Controlled components manage state through React, while uncontrolled components manage state through the browser.Uncontrolled components are usually easier to set up and require less code, while controlled components require more setup and can be more verbose. Controlled components offer more control over form data and are more predictable, while uncontrolled components offer less control over form data but are easier to set up.</p>
+                    <p>Controlled componentss manage state through React, while uncontrolled components manage state through the browser.Uncontrolled components are usually easier to set up and require less code, while controlled components require more setup and can be more verbose. Controlled components offer more control over form data and are more predictable, while uncontrolled components offer less control over form data but are easier to set up.</p>
                 </div>
                 <div className='text-center'>
                     <h3>validate React props using PropTypes</h3>
